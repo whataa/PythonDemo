@@ -15,7 +15,7 @@ url = [
     r'http://www.cdut.edu.cn/xww/news/145198579690096955.html'
 ]
 
-rp = requests.get(url[0])
+rp = requests.get(url[2])
 soup = BeautifulSoup(rp.content, 'html.parser')
 #发布者
 puber = soup.find('span', class_='puber')

@@ -17,7 +17,9 @@ soup = BeautifulSoup(rp.content, 'html.parser')
 content = soup.find('div', id='text')
 for p in content.p.find_all('p'):
     if not p.text:
-            continue
+        continue
+    if p.text and (not str(p.text).strip()):
+        continue
     print(str(p.text).strip().replace('\n',''))
 #表格
 if content.p.find('table'):
