@@ -27,12 +27,11 @@ __author = re.findall(pt,str(soup.find('span', class_='puber').text).replace('\n
 # 发布时间
 __datetime = re.findall(pt,str(soup.find('span', class_='pubtime').text).replace('\n', ''))[0]
 
-content = soup.find('div', id='contentdisplay')
 __content = []
 file_url = ''
 file_name = ''
 file_type = ''
-for p in content.find_all('p'):
+for p in soup.find_all('p', class_='MsoNormal'):
     # 图片链接
     if p.img:
         __content.append({'img': p.img['src']})
@@ -41,10 +40,10 @@ for p in content.find_all('p'):
         # 标签里没有内容
         if not p.span.text:
             continue
-        if str(p.text).strip().startswith('附件：'):
+        if str(p.text).strip().startswith('附件：') or str(p.text).strip().startswith('下载：'):
             if p.a:
                 file_url = p.a['href']
-                file_name = str(p.text).strip().replace('\n', '').replace('附件：', '')
+                file_name = str(p.text).strip().replace('\n', '').replace('附件：', '').replace('下载：','')
                 file_type = file_url.split('.')[-1]
             continue
         if p.a:
