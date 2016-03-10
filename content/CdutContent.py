@@ -9,6 +9,7 @@ from bs4 import BeautifulSoup
 url = [
     # 公告&学术
     r'http://www.cdut.edu.cn/xww/news/145154845001077854.html',
+    r'http://www.cdut.edu.cn/xww/news/145732274461961636.html',
     r'http://www.cdut.edu.cn/xww/news/145489653138558663.html',
     r'http://www.cdut.edu.cn/xww/news/145621441566681942.html',
     r'http://www.cdut.edu.cn/xww/news/145085388618242647.html',
